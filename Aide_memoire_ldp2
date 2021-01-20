@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Aide-mémoire LDP2}
+\author{Rizlaine Kabbali }
+\date{January 2021}
+
+\begin{document}
+
+\maketitle
+\newpage
+\section{C++}
+\subsection{Mots-clés}
+    \subsubsection{constexpr :} Variable ou fonction évaluable dès la phase de la compilation. Variable \textbf{const}, de \underline{type littéral} et doit être \underline{initialisé} via un initialiseur ou par construction. Fonction implicitement \textbf{inline} avec paramètres de \underline{type littéral}.\textbf{PAS} de "\textbf{try}", "\textbf{asm}", ni "\textbf{goto}" dans la fonction et ne peut pas virtuelle.
+ 
+    \subsubsection{noexcept :} Les exceptions qui pourraient survenir dans l’exécution du corps de la fonction ne pourront pas être gérées au niveau du code appelant (elles devront l’avoir été au sein de la fonction).
+  
+\subsection{Méthodes}
+\subsubsection{Constructeur de copie : } Réalise un \underline{clonage} de son paramètre (de type "\textbf{const} C\&" $\Rightarrow$ pas juste C sinon construction de copie en abîme). Définition implicite $\Rightarrow$ \underline{copie superficielle} $\Rightarrow$ Définition explicite obligatoire dès qu'une classe contient des attributs de types \underline{pointeurs} ou \underline{références} pour effectuer copie \underline{profonde}.\\
+\vspace{3mm} \textbf{public}: \textbf{constexpr} C (\textbf{const} C\&) \textbf{noexcept} = \textbf{default};
+  \subsubsection{opérateur de copie ou opérateur d'assignation :} Réalise une copie de son paramètre.\\ 
+   \vspace{3mm} \textbf{public}: C\& \textbf{operator = }(\textbf{const} C\&) \textbf{noexcept} = \textbf{default};
+    \subsubsection{Constructeur et opérateur de transfert : } Constructeur/opérateur ayant pour type du premier paramètre une \underline{référence vers une R-value} de sa classe. Son paramètre est un objet temporaire. Il est vidé de son contenu.
+    
+    \subsubsection{std::move} revient à faire un "\textbf{static\_cast <C\&\& >(a)} : Fait appel aux constrcuteurs et opérateurs de transfert.
+    
+    \subsubsection{Fonction lambda : } p 290 langage I
+    \subsubsection{Fonction variadique : } p 113
+\subsection{Objets}
+
+\subsubsection{initializer}
+
+\subsection{Concepts}
+  \subsubsection{type littéral :} type scalaire (POD), "void", référence, tableau d'éléments de type littéral ou classe qui est un simple agrégat ou possède constructeur \textbf{"constexpr"}.
+\subsubsection{L-value : } Objet "persistant" auquel une adresse mémoire est allouée. \underline{Pourrait} apparaître comme membre de gauche d'une instruction d'assignation.
+\subsubsection{R-value : } Valeur temporaire, opérande de droite.
+\subsubsection{Surcharge des méthodes}
+
+\section{Java}
+\section{QUESTIONS?}
+\begin{itemize}
+\item \textbf{classe info: héritage}
+\item \textbf{struct \_base}
+\item \textbf{pq héritage privé pour cont base?} car classe technique donc encapsulée
+
+
+
+
+\end{itemize}
+traverse:
+\end{document}
